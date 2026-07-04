@@ -9,80 +9,89 @@
     <meta property="og:description" content="Kalveri builds intelligent companies and operating systems for modern work.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://kalveri.com/">
-    <meta property="og:image" content="https://kalveri.com/assets/kalveri-mark.svg">
+    <meta property="og:image" content="https://kalveri.com/assets/kalveri-wordmark.png">
     <meta name="theme-color" content="#06080d">
     <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
     <link rel="apple-touch-icon" href="assets/favicon.svg">
-    <link rel="preload" href="assets/kalveri-mark.svg" as="image" type="image/svg+xml">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="preload" href="assets/kalveri-wordmark.png" as="image" type="image/png">
+    <link rel="preload" href="assets/kalveri-k.png" as="image" type="image/png">
+    <link rel="stylesheet" href="styles.css?v=readability-002">
   </head>
   <body>
     <div class="site-shell">
       <header class="site-header" aria-label="Kalveri">
-        <a class="brand-lockup" href="/" aria-label="Kalveri home">
-          <img src="assets/kalveri-mark.svg" alt="" class="brand-mark" width="34" height="34">
-          <span>KALVERI</span>
+        <a class="brand-wordmark" href="#top" aria-label="Kalveri home">
+          <img src="assets/kalveri-wordmark.png" alt="Kalveri" width="833" height="79">
         </a>
+        <nav class="site-nav" aria-label="Primary navigation">
+          <a href="#about">About</a>
+          <a href="#vision">Vision</a>
+          <a href="#companies">Companies</a>
+          <a href="mailto:contact@kalveri.com">Contact</a>
+        </nav>
       </header>
 
       <main>
-        <section class="hero" aria-labelledby="hero-title">
-          <div class="hero-glow" aria-hidden="true"></div>
-          <div class="hero-inner">
-            <img src="assets/kalveri-mark.svg" alt="" class="hero-mark" width="132" height="132">
-            <p class="wordmark" id="hero-title">KALVERI</p>
-            <h1>The Operating System for Modern Companies.</h1>
-            <p class="hero-line">We build companies powered by intelligence.</p>
-          </div>
-          <div class="scroll-indicator" aria-hidden="true">
-            <span></span>
+        <section class="hero" id="top" aria-labelledby="hero-title">
+          <div class="hero-stage">
+            <div class="hero-composition">
+              <h1 class="visually-hidden" id="hero-title">Kalveri</h1>
+              <span class="hero-k" aria-hidden="true">
+                <img src="assets/kalveri-k.png" alt="" width="316" height="316">
+              </span>
+              <span class="hero-logo" aria-hidden="true">
+                <img src="assets/kalveri-wordmark.png" alt="" width="833" height="79">
+              </span>
+              <div class="gold-rule" aria-hidden="true"></div>
+              <p class="tagline">The Operating System for Modern Companies.</p>
+              <p class="hero-line">We build companies powered by intelligence.</p>
+            </div>
+            <div class="scroll-indicator" aria-hidden="true">
+              <span></span>
+              <p>Scroll</p>
+            </div>
+            <p class="hero-footer" aria-hidden="true">&copy; 2026 Kalveri. All rights reserved.</p>
           </div>
         </section>
 
-        <section class="section companies reveal" aria-labelledby="companies-title">
+        <section class="section about reveal" id="about" aria-labelledby="about-title">
           <div class="section-heading">
-            <p class="eyebrow">01</p>
-            <h2 id="companies-title">Companies</h2>
+            <p class="eyebrow">About</p>
+            <h2 id="about-title">A company for building companies.</h2>
           </div>
+          <p>Kalveri is the parent company behind Kalveri AI, Razbudise, BuildIQ, and MediaHub.</p>
+        </section>
 
-          <div class="company-grid">
-            <article class="company-card">
+        <section class="section vision reveal" id="vision" aria-labelledby="vision-title">
+          <div class="section-heading">
+            <p class="eyebrow">Vision</p>
+            <h2 id="vision-title">Operating systems for modern work.</h2>
+          </div>
+          <p>Every Kalveri company is designed to be structured, intelligent, and built to grow with its people.</p>
+        </section>
+
+        <section class="section companies reveal" id="companies" aria-labelledby="companies-title">
+          <div class="section-heading">
+            <p class="eyebrow">Companies</p>
+            <h2 id="companies-title">Built on one intelligence layer.</h2>
+          </div>
+          <div class="company-list" aria-label="Kalveri companies">
+            <article>
+              <h3>Kalveri AI</h3>
+              <p>Shared intelligence layer</p>
+            </article>
+            <article>
               <h3>Razbudise</h3>
-              <p>AI Newsroom</p>
+              <p>AI newsroom</p>
             </article>
-            <article class="company-card">
+            <article>
               <h3>BuildIQ</h3>
-              <p>Construction Operating System</p>
+              <p>Construction operating system</p>
             </article>
-            <article class="company-card">
+            <article>
               <h3>MediaHub</h3>
-              <p>Personal Media Operating System</p>
+              <p>Personal media operating system</p>
             </article>
-          </div>
-        </section>
-
-        <section class="section intelligence reveal" aria-labelledby="ai-title">
-          <div class="section-heading">
-            <p class="eyebrow">02</p>
-            <h2 id="ai-title">Kalveri AI</h2>
-          </div>
-          <div class="intelligence-panel">
-            <p>A shared intelligence layer powering every Kalveri company.</p>
-            <ul class="signal-list" aria-label="Kalveri AI capabilities">
-              <li>Memory</li>
-              <li>Agents</li>
-              <li>Knowledge</li>
-              <li>Automation</li>
-              <li>Decisions</li>
-            </ul>
-          </div>
-        </section>
-
-        <section class="section philosophy reveal" aria-labelledby="philosophy-title">
-          <div class="philosophy-copy">
-            <p class="eyebrow">03</p>
-            <h2 id="philosophy-title">We do not build products. We build companies.</h2>
-            <p>Every Kalveri company is designed as an operating system: structured, intelligent, and built to grow.</p>
           </div>
         </section>
       </main>
@@ -91,6 +100,5 @@
         <p>&copy; 2026 Kalveri. All rights reserved.</p>
       </footer>
     </div>
-    <script src="script.js" defer></script>
   </body>
 </html>

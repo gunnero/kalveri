@@ -1,19 +1,14 @@
-<svg width="256" height="256" viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title">
+<svg width="220" height="196" viewBox="0 0 220 196" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title">
   <title id="title">Kalveri K mark</title>
   <defs>
-    <linearGradient id="gold" x1="66" y1="34" x2="199" y2="224" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#FFF0B8"/>
-      <stop offset="0.38" stop-color="#D8AF5B"/>
-      <stop offset="1" stop-color="#8E6123"/>
+    <linearGradient id="gold" x1="52" y1="16" x2="169" y2="180" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFF2B8"/>
+      <stop offset="0.35" stop-color="#D8AF5B"/>
+      <stop offset="0.72" stop-color="#B78335"/>
+      <stop offset="1" stop-color="#7A4E1C"/>
     </linearGradient>
-    <radialGradient id="glow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(128 128) rotate(90) scale(116)">
-      <stop stop-color="#D8AF5B" stop-opacity="0.28"/>
-      <stop offset="1" stop-color="#D8AF5B" stop-opacity="0"/>
-    </radialGradient>
   </defs>
-  <circle cx="128" cy="128" r="120" fill="#070A10"/>
-  <circle cx="128" cy="128" r="118" fill="url(#glow)"/>
-  <circle cx="128" cy="128" r="116" stroke="url(#gold)" stroke-opacity="0.42" stroke-width="1.5"/>
-  <path d="M78 58H105V118L160 58H194L135 122L199 198H164L116 139L105 151V198H78V58Z" fill="url(#gold)"/>
-  <path d="M78 58H105V198H78V58Z" fill="#F2D993" fill-opacity="0.18"/>
+  <path d="M47 18H87V90L154 18H207L134 94L210 178H154L103 116L87 133V178H47V18Z" fill="url(#gold)"/>
+  <path d="M87 91L154 18H207L116 116L87 91Z" fill="#FFEAA9" fill-opacity="0.35"/>
+  <path d="M47 18H87V178H47V18Z" fill="#F6D98A" fill-opacity="0.22"/>
 </svg>

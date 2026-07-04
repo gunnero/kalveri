@@ -21,7 +21,8 @@ http://127.0.0.1:4173/
 
 - `index.html` - static page markup and SEO metadata.
 - `styles.css` - responsive premium dark/gold visual system.
-- `script.js` - small reveal animation helper.
+- `assets/kalveri-wordmark-source.png` - original Kalveri wordmark artwork used in the header and hero.
+- `assets/kalveri-k-source.png` - original gold K artwork used in the hero.
 - `assets/kalveri-mark.svg` - replaceable Kalveri K mark.
 - `assets/favicon.svg` - local favicon placeholder.
 - `.well-known/mta-sts.txt` - mail security policy file that must stay deployed.
@@ -46,6 +47,7 @@ Deployment command once approved:
 rsync -av --delete \
   --exclude '.git' \
   --exclude 'screenshots' \
+  --exclude 'design-qa.md' \
   /Users/aleksandardimovski/Sites/kalveri/ \
   web01:/home/kalveri/public_html/
 ```
