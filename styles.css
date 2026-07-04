@@ -2,10 +2,10 @@
   --bg: #03050a;
   --bg-deep: #010206;
   --text: #f4f1ea;
-  --text-main: rgba(255,255,255,0.99);
-  --text-soft: rgba(255,255,255,0.93);
-  --text-muted: rgba(255,255,255,0.86);
-  --text-quiet: rgba(255,255,255,0.80);
+  --text-main: rgba(255,255,255,1);
+  --text-soft: rgba(255,255,255,0.95);
+  --text-muted: rgba(255,255,255,0.88);
+  --text-quiet: rgba(255,255,255,0.82);
   --nav-text: rgba(255,255,255,0.96);
   --footer-text: rgba(255,255,255,0.78);
   --line: rgba(255, 255, 255, 0.22);
@@ -38,8 +38,9 @@ body {
   min-width: 320px;
   margin: 0;
   background:
-    radial-gradient(circle at 50% 16%, rgba(34, 42, 58, 0.18), transparent 30%),
-    linear-gradient(180deg, #06080d 0%, #020307 50%, #030407 100%);
+    radial-gradient(ellipse at 50% 18%, rgba(48, 58, 76, 0.22), transparent 34%),
+    radial-gradient(ellipse at 50% 80%, rgba(214, 170, 86, 0.07), transparent 30%),
+    linear-gradient(180deg, #07090f 0%, #020307 48%, #050506 100%);
   color: var(--text);
   font-family: "Avenir Next", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-synthesis: none;
@@ -54,15 +55,13 @@ body {
 body::before {
   position: fixed;
   inset: 0;
-  z-index: -2;
+  z-index: 80;
   pointer-events: none;
   content: "";
-  background-image:
-    linear-gradient(rgba(255, 255, 255, 0.012) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.01) 1px, transparent 1px);
-  background-size: 132px 132px;
-  opacity: 0.34;
-  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.62), transparent 68%);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180' viewBox='0 0 180 180'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.86' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23noise)' opacity='0.42'/%3E%3C/svg%3E");
+  background-size: 180px 180px;
+  opacity: 0.045;
+  mix-blend-mode: soft-light;
 }
 
 body::after {
@@ -72,8 +71,9 @@ body::after {
   pointer-events: none;
   content: "";
   background:
-    linear-gradient(90deg, rgba(0, 0, 0, 0.22), transparent 24%, transparent 76%, rgba(0, 0, 0, 0.22)),
-    linear-gradient(180deg, rgba(0, 0, 0, 0.02), rgba(0, 0, 0, 0.24));
+    radial-gradient(ellipse at 50% 42%, rgba(255, 255, 255, 0.025), transparent 42%),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.28), transparent 24%, transparent 76%, rgba(0, 0, 0, 0.28)),
+    linear-gradient(180deg, rgba(0, 0, 0, 0.02), rgba(0, 0, 0, 0.28));
 }
 
 img {
@@ -188,6 +188,21 @@ p {
   justify-content: center;
   min-height: 100svh;
   width: min(1320px, calc(100vw - 96px));
+}
+
+.hero-stage::before {
+  position: absolute;
+  left: 50%;
+  top: 42%;
+  z-index: 0;
+  width: clamp(520px, 54vw, 860px);
+  aspect-ratio: 1;
+  transform: translate(-50%, -50%) rotate(-8deg);
+  pointer-events: none;
+  content: "";
+  background: url("assets/kalveri-k.png") center / contain no-repeat;
+  opacity: 0.016;
+  filter: grayscale(1) sepia(0.58) saturate(1.05) brightness(1.08);
 }
 
 /* Bottom divider only. The glow belongs to the scroll indicator, not the footer/page. */
@@ -387,6 +402,28 @@ p {
   scroll-margin-top: 0;
 }
 
+.about::before {
+  position: absolute;
+  left: 20%;
+  top: 43%;
+  z-index: 0;
+  width: min(640px, 58vw);
+  height: 320px;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  content: "";
+  background:
+    radial-gradient(
+      ellipse at center,
+      rgba(214, 170, 86, 0.18) 0%,
+      rgba(214, 170, 86, 0.075) 34%,
+      rgba(214, 170, 86, 0.025) 54%,
+      transparent 74%
+    );
+  opacity: 0.78;
+  filter: blur(28px);
+}
+
 .section > * {
   position: relative;
   z-index: 1;
@@ -486,7 +523,7 @@ h2 {
   width: min(1320px, calc(100vw - 96px));
   margin: 0 auto;
   padding: 34px 0 42px;
-  border-top: 1px solid var(--line-soft);
+  border-top: 1px solid rgba(255, 255, 255, 0.26);
   color: var(--footer-text);
   text-align: center;
 }
@@ -661,6 +698,14 @@ h2 {
     padding: 92px 0;
   }
 
+  .about::before {
+    left: 46%;
+    top: 45%;
+    width: min(520px, 82vw);
+    height: 280px;
+    opacity: 0.62;
+  }
+
   .section > p,
   .company-list {
     margin-top: 0;
@@ -694,6 +739,12 @@ h2 {
     --scroll-offset-y: 0px;
   }
 
+  .hero-stage::before {
+    top: 38%;
+    width: min(520px, 116vw);
+    opacity: 0.01;
+  }
+
   .hero-composition {
     --composition-x: 0px;
   }
@@ -722,10 +773,21 @@ h2 {
 
   .hero-stage::after {
     bottom: 54px;
+    background:
+      linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.16) 18%, rgba(214, 170, 86, 0.42) 50%, rgba(255, 255, 255, 0.16) 82%, transparent 100%);
   }
 
   .scroll-indicator {
     bottom: clamp(112px, 14vh, 132px);
+  }
+
+  .hero-footer {
+    bottom: 21px;
+    width: 100%;
+    color: rgba(255, 255, 255, 0.72);
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-indent: 0.18em;
   }
 
   .company-list article {
@@ -751,5 +813,16 @@ h2 {
 
   .site-nav a {
     font-size: 12px;
+  }
+
+  .about::before {
+    width: 92vw;
+    height: 240px;
+    opacity: 0.52;
+  }
+
+  .site-footer {
+    width: min(100% - 28px, var(--max));
+    padding-bottom: 34px;
   }
 }
