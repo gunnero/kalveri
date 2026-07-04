@@ -1,0 +1,22 @@
+{
+  "name": "Kalveri",
+  "short_name": "Kalveri",
+  "description": "The Operating System for Modern Companies.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#05070a",
+  "theme_color": "#06080d",
+  "icons": [
+    {
+      "src": "/assets/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    },
+    {
+      "src": "/assets/kalveri-k.png",
+      "sizes": "316x316",
+      "type": "image/png"
+    }
+  ]
+}
