@@ -1,5 +1,5 @@
 .DS_Store
-screenshots/
+/screenshots/
 output/
 design-qa.md
 dist/

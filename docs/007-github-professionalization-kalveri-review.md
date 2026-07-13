@@ -19,7 +19,7 @@ The original README exposed real operational topology and the homepage used spec
 Security evidence:
 
 - Gitleaks current tree: no leaks found
-- Gitleaks full review-branch history: seven commits scanned, no leaks found
+- Gitleaks full review-branch history: eight commits scanned, no leaks found
 - Private-key and common GitHub, AWS, OpenAI, and Slack token patterns: no findings
 - Environment files, dumps, private keys, archives, tracked build output, and source maps: none
 - Public-evidence topology scan: passed
