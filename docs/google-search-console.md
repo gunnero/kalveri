@@ -1,27 +1,14 @@
-# Google Search Console Preparation
+# Search indexing notes
 
-Kalveri homepage v1 is ready for Search Console setup after deployment.
+The public homepage provides canonical metadata, robots directives, a sitemap, and a static verification file. These notes describe public indexing behavior without documenting DNS ownership or private operational procedures.
 
 ## Verification
 
-Recommended method: DNS TXT verification.
-
-1. Open Google Search Console.
-2. Add a domain property for `kalveri.com`.
-3. Copy the TXT verification record Google provides.
-4. Add the TXT record in Hetzner DNS for `kalveri.com`.
-5. Wait for DNS propagation.
-6. Click **Verify** in Search Console.
-
-Do not add a verification token to the homepage unless DNS verification is not possible.
+The tracked HTML verification file is public by design and contains no credential. DNS-provider access, verification records, and operational ownership remain outside this repository.
 
 ## Sitemap Submission
 
-After the property is verified:
-
-1. Open **Sitemaps** in Google Search Console.
-2. Submit `https://kalveri.com/sitemap.xml`.
-3. Confirm Google can fetch the sitemap.
+The public sitemap is available at `https://kalveri.com/sitemap.xml`. Search-platform configuration is maintained privately.
 
 ## Current Sitemap
 

@@ -92,6 +92,23 @@ a:focus-visible {
   outline-offset: 7px;
 }
 
+.skip-link {
+  position: fixed;
+  left: 24px;
+  top: 18px;
+  z-index: 100;
+  padding: 12px 16px;
+  transform: translateY(-160%);
+  border: 1px solid var(--gold);
+  background: var(--bg-deep);
+  color: var(--text-main);
+  transition: transform var(--duration-fast) var(--ease-soft);
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+}
+
 h1,
 h2,
 h3,
@@ -537,6 +554,18 @@ h2 {
   letter-spacing: 0.26em;
   text-indent: 0.26em;
   text-transform: uppercase;
+}
+
+.site-footer a {
+  display: inline-block;
+  margin-top: 18px;
+  color: var(--text-soft);
+  font-size: 14px;
+}
+
+.site-footer a:hover,
+.site-footer a:focus-visible {
+  color: var(--gold);
 }
 
 .reveal {

@@ -1,117 +1,93 @@
-# Kalveri Static Homepage
+# Kalveri company website
 
-Minimal public homepage for `kalveri.com`.
+**Status:** Active company website · source-visible · maintained privately
 
-## Local Preview
+This repository contains the public website for Kalveri, a software company and product ecosystem focused on practical business software, SaaS products, publishing systems, and accountable AI-assisted engineering.
 
-Open `index.html` directly, or use a small static server:
+## Purpose
 
-```bash
-cd /Users/aleksandardimovski/Sites/kalveri
-python3 -m http.server 4173
-```
+The website presents Kalveri's public positioning, engineering approach, current product ecosystem, and contact path. It is a company website—not a shared platform, product monorepo, infrastructure repository, customer portal, or AI operating platform.
 
-Open:
+## Company positioning
 
-```text
-http://127.0.0.1:4173/
-```
+Kalveri builds and evolves software around real workflows, explicit boundaries, security, accessibility, testing, and reversible delivery. Public materials distinguish active work from future direction and do not claim customers, revenue, funding, employees, market traction, or commercial success.
 
-## Files
+## Current product ecosystem
 
-- `index.html` - static page markup and SEO metadata.
-- `styles.css` - responsive premium dark/gold visual system.
-- `assets/kalveri-wordmark-source.png` - original Kalveri wordmark artwork used in the header and hero.
-- `assets/kalveri-k-source.png` - original gold K artwork used in the hero.
-- `assets/kalveri-mark.svg` - replaceable Kalveri K mark.
-- `assets/favicon.svg` - local favicon placeholder.
-- `.well-known/mta-sts.txt` - mail security policy file that must stay deployed.
+- **BuildIQ** — AI-assisted construction management with deterministic business workflows
+- **MediaHub** — movie and television tracking with user-owned history and privacy-aware social features
+- **Razbudise** — digital publishing and editorial workflow
 
-## Build
+These products are active work. Inclusion here does not imply that each product is commercially launched.
 
-No build step is required.
+## Technology stack
 
-## Apache Deployment Notes
+- Semantic HTML
+- Responsive CSS
+- Static assets and structured metadata
+- Node-based validation, Playwright, and axe-core
+- GitHub Actions for build, quality, accessibility, dependency, and secret checks
 
-Do not deploy until explicitly approved.
+## Design and accessibility
 
-Recommended Apache static hosting path:
+The interface uses the Kalveri wordmark, gold mark, a dark editorial system, responsive layouts, keyboard-visible focus, a skip link, semantic landmarks, and reduced-motion behavior. Screenshots use only the public website and are governed by the [screenshot policy](docs/002-kalveri-screenshot-policy.md).
 
-```text
-/home/kalveri/public_html
-```
+## Local development
 
-Deployment command once approved:
+Prerequisites: Node.js 22+ and npm 10+.
 
 ```bash
-rsync -av --delete \
-  --exclude '.git' \
-  --exclude 'screenshots' \
-  --exclude 'design-qa.md' \
-  /Users/aleksandardimovski/Sites/kalveri/ \
-  web01:/home/kalveri/public_html/
+npm ci
+npm run dev
 ```
 
-The local `.well-known/mta-sts.txt` file is included so `--delete` does not remove the mail security policy from the public web root.
+The local preview uses an ephemeral loopback server and does not require production configuration.
 
-Then on `web01`:
+## Build and validation
 
 ```bash
-sudo chown -R kalveri:kalveri /home/kalveri/public_html
-sudo find /home/kalveri/public_html -type d -exec chmod 0750 {} +
-sudo find /home/kalveri/public_html -type f -exec chmod 0644 {} +
-sudo chmod 0755 /home/kalveri/public_html/.well-known 2>/dev/null || true
-sudo apache2ctl configtest
-sudo systemctl reload apache2
+npm run lint
+npm test
+npm run build
+npm run test:a11y
+npm audit --audit-level=high
 ```
 
-## HTTPS
+The static build is written to `dist/`. Validation covers HTML, CSS, metadata, internal links, assets, public-evidence boundaries, and an accessibility smoke test.
 
-Current Kalveri certificate on `web01` should include:
+## Screenshots
 
-```text
-kalveri.com
-www.kalveri.com
-mail.kalveri.com
-webmail.kalveri.com
-mta-sts.kalveri.com
-```
+| Homepage | Product ecosystem |
+| --- | --- |
+| ![Kalveri homepage hero with the gold K mark and practical-software positioning](docs/assets/screenshots/kalveri-homepage.png) | ![Kalveri current product ecosystem section](docs/assets/screenshots/kalveri-products.png) |
 
-Verify after deployment:
+| Engineering approach | Mobile homepage |
+| --- | --- |
+| ![Kalveri engineering approach section](docs/assets/screenshots/kalveri-approach.png) | ![Kalveri homepage at a mobile viewport](docs/assets/screenshots/kalveri-mobile.png) |
 
-```bash
-curl -Iv https://kalveri.com/
-curl -Iv https://www.kalveri.com/
-```
+## Documentation
 
-## DNS Check
+- [Architecture](docs/architecture.md)
+- [Public-state audit](docs/001-github-professionalization-kalveri-audit.md)
+- [Screenshot policy](docs/002-kalveri-screenshot-policy.md)
+- [Asset strategy](docs/003-kalveri-asset-strategy.md)
+- [Dependency review](docs/004-kalveri-dependency-review.md)
+- [Optional rename plan](docs/005-kalveri-repository-rename-plan.md)
+- [Main-promotion plan](docs/006-kalveri-main-promotion-plan.md)
+- [Professionalization review](docs/007-github-professionalization-kalveri-review.md)
 
-```bash
-dig +short A kalveri.com
-dig +short AAAA kalveri.com
-dig +short A www.kalveri.com
-dig +short AAAA www.kalveri.com
-```
+## Security
 
-Expected:
+Please follow [SECURITY.md](SECURITY.md). Do not publish vulnerabilities, credentials, private infrastructure, customer information, or operational topology in issues.
 
-```text
-188.245.47.216
-2a01:4f8:c2c:18df::1
-```
+## Deployment principles
 
-## Rollback
+A release should identify a reviewed commit, produce a validated static build, preserve a recovery point, replace files atomically, run public smoke checks, and retain a tested rollback path. Environment-specific commands, hosts, accounts, certificates, DNS, mail configuration, and backup locations remain outside this public repository.
 
-Before deploying, back up the current web root:
+## License status
 
-```bash
-ssh web01 'sudo tar -C /home/kalveri -czf /root/codex-backups/kalveri-public-html-before-homepage-$(date +%Y%m%d%H%M%S).tar.gz public_html'
-```
+No public license has been granted. The repository is proprietary source-visible pending approved legal wording; public visibility does not grant reuse rights to code or artwork.
 
-Rollback:
+## Disclaimer
 
-```bash
-ssh web01 'sudo rm -rf /home/kalveri/public_html && sudo mkdir -p /home/kalveri/public_html'
-ssh web01 'sudo tar -C /home/kalveri -xzf /root/codex-backups/kalveri-public-html-before-homepage-YYYYMMDDHHMMSS.tar.gz'
-ssh web01 'sudo apache2ctl configtest && sudo systemctl reload apache2'
-```
+Kalveri's public product references describe active engineering work, not guaranteed availability, adoption, customer relationships, revenue, funding, staffing, or commercial results.
