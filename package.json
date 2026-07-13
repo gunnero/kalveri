@@ -1,0 +1,23 @@
+{
+  "name": "kalveri-company-website",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Public company website for Kalveri.",
+  "license": "UNLICENSED",
+  "type": "module",
+  "scripts": {
+    "dev": "python3 -m http.server 4173",
+    "lint": "npm run lint:html && npm run lint:css",
+    "lint:html": "html-validate index.html",
+    "lint:css": "stylelint styles.css",
+    "test": "node --test tests/*.test.mjs && node scripts/check-public-evidence.mjs",
+    "build": "node scripts/build.mjs",
+    "test:a11y": "playwright test"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "4.12.1",
+    "@playwright/test": "1.61.1",
+    "html-validate": "10.17.0",
+    "stylelint": "17.14.0"
+  }
+}

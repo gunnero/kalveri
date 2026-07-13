@@ -1,0 +1,26 @@
+name: Content correction
+description: Suggest a factual correction to public Kalveri website content.
+title: "[Content]: "
+labels: [content]
+body:
+  - type: input
+    id: location
+    attributes:
+      label: Content location
+      placeholder: Homepage About section
+    validations:
+      required: true
+  - type: textarea
+    id: correction
+    attributes:
+      label: Proposed correction
+      description: State the current wording, proposed wording, and a public source when relevant.
+    validations:
+      required: true
+  - type: checkboxes
+    id: boundaries
+    attributes:
+      label: Public boundaries
+      options:
+        - label: The suggestion contains no confidential roadmap, customer, commercial, personal, or infrastructure information.
+          required: true

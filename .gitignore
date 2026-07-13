@@ -1,4 +1,9 @@
 .DS_Store
-screenshots/
+/screenshots/
 output/
 design-qa.md
+dist/
+node_modules/
+playwright-report/
+test-results/
+.playwright-cli/
